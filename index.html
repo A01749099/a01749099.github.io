@@ -59,7 +59,7 @@
             var yesButton = document.getElementById("yesBtn");
             var currentSize = yesButton.style.fontSize.replace('px', '');
             currentSize = currentSize ? parseInt(currentSize) : 16; // Default size is 16px if not set
-            yesButton.style.fontSize = (currentSize + 1) + 'px'; // Increment font size
+            yesButton.style.fontSize = (currentSize + 3) + 'px'; // Increment font size
             yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Adjust padding as well
         }
     </script>
