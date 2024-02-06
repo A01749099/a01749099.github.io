@@ -29,13 +29,21 @@
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
-            background-color: #28a745;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        .card button:hover {
+        .yes-button {
+            background-color: #28a745;
+        }
+        .no-button {
+            background-color: #dc3545;
+        }
+        .yes-button:hover {
             background-color: #218838;
+        }
+        .no-button:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
@@ -43,11 +51,17 @@
     <div class="card">
         <img src="san val.png" alt="Valentine Bear">
         <h3>Will you be my Valentine?</h3>
-        <button onclick="alert('Yes, I will be your Valentine!')">Yes</button>
-        <button onclick="alert('Are you positive???')">Are you positive???</button>
+        <button class="yes-button" id="yesBtn">Yes</button>
+        <button class="no-button" onclick="growYesButton()">No quiero ser tu San Valentín</button>
     </div>
     <script>
-        // Aquí puedes agregar JavaScript si necesitas más interactividad
+        function growYesButton() {
+            var yesButton = document.getElementById("yesBtn");
+            var currentSize = yesButton.style.fontSize.replace('px', '');
+            currentSize = currentSize ? parseInt(currentSize) : 16; // Default size is 16px if not set
+            yesButton.style.fontSize = (currentSize + 1) + 'px'; // Increment font size
+            yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Adjust padding as well
+        }
     </script>
 </body>
 </html>
