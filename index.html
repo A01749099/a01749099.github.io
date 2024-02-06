@@ -49,17 +49,35 @@
 </head>
 <body>
     <div class="card">
-        <img src="san val.png" alt="Valentine Bear">
+        <img src="san val.png" alt="Valentine Bear" id="bearImage">
         <h3>Will you be my Valentine?</h3>
-        <button class="yes-button" id="yesBtn">Yes</button>
+        <button class="yes-button" id="yesBtn">Sip<#</button>
         <button class="no-button" onclick="growYesButton()">No quiero ser tu San Valentín</button>
     </div>
     <script>
+        var images = [
+            'san val.png', // reemplaza con la ruta a tu primera imagen
+            'san val2.png', // reemplaza con la ruta a tu segunda imagen
+            'san val3.png', // reemplaza con la ruta a tu tercera imagen
+            'san val4.png', // reemplaza con la ruta a tu cuarta imagen
+            
+        ];
+        var currentIndex = 0;
+        
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Esto hará que el índice sea cíclico
+            var imgElement = document.getElementById('bearImage');
+            imgElement.src = images[currentIndex];
+        }
+        
+        // Cambia la imagen cada 5 segundos
+        setInterval(changeImage, 5000);
+
         function growYesButton() {
             var yesButton = document.getElementById("yesBtn");
             var currentSize = yesButton.style.fontSize.replace('px', '');
             currentSize = currentSize ? parseInt(currentSize) : 16; // Default size is 16px if not set
-            yesButton.style.fontSize = (currentSize + 3) + 'px'; // Increment font size
+            yesButton.style.fontSize = (currentSize + 5) + 'px'; // Increment font size
             yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Adjust padding as well
         }
     </script>
