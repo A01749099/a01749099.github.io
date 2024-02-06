@@ -111,7 +111,12 @@
             currentSize = currentSize ? parseInt(currentSize) : 16; // El tamaño predeterminado es 16px si no se ha establecido
             yesButton.style.fontSize = (currentSize + 5) + 'px'; // Incrementa el tamaño de la fuente
             yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Ajusta el relleno también
-            
+            var maxFontSize = 30; // el tamaño máximo de la fuente para el botón "Sí"
+            if (newSize < maxFontSize) {
+                yesButton.style.fontSize = newSize + 'px';
+                yesButton.style.padding = (10 + (newSize - 16) * 0.5) + 'px ' + (20 + (newSize - 16) * 0.75) + 'px';
+            }
+
             // Cambia el texto del botón "No quiero ser tu San Valentín"
             var noButton = document.getElementById("noBtn");
             var buttonTexts = [
@@ -119,7 +124,10 @@
                 "Voy a llorar",
                 "Andale siiii",
                 "Por favorrrr ardillaaaaa",
-                "Me voy a enojar contigo Valeria Guadalupe"
+                "Te doy muchos besos si pones que si",
+                "Me voy a enojar contigo Valeria Guadalupe",
+                "Ya entendi que no me quieres :(",
+                
             ];
             var currentText = noButton.textContent || noButton.innerText;
             var textIndex = buttonTexts.indexOf(currentText);
