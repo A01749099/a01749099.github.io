@@ -94,7 +94,9 @@
             
         ];
         var currentIndex = 0;
-        
+        var imageInterval = setInterval(changeImage, 3000); // Guarda el intervalo para poder detenerlo luego
+        var noButtonClickCount = 0;
+
         function changeImage() {
             currentIndex = (currentIndex + 1) % images.length; // Esto hará que el índice sea cíclico
             var imgElement = document.getElementById('bearImage');
@@ -102,7 +104,7 @@
         }
         
         // Cambia la imagen cada 5 segundos
-        setInterval(changeImage, 3000);
+        
 
         function changeTextAndGrowYesButton() {
             // Hace crecer el botón "Sip"
@@ -111,8 +113,12 @@
             currentSize = currentSize ? parseInt(currentSize) : 16; // El tamaño predeterminado es 16px si no se ha establecido
             yesButton.style.fontSize = (currentSize + 5) + 'px'; // Incrementa el tamaño de la fuente
             yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Ajusta el relleno también
-            var maxFontSize = 30; // el tamaño máximo de la fuente para el botón "Sí"
-            
+
+            noButtonClickCount++;
+            // Si el botón "No" se ha presionado 7 veces, cambia la imagen y detén el intervalo
+            if (noButtonClickCount === 7) {
+                stopImageChange();
+            }
 
             // Cambia el texto del botón "No quiero ser tu San Valentín"
             var noButton = document.getElementById("noBtn");
@@ -129,7 +135,14 @@
             var currentText = noButton.textContent || noButton.innerText;
             var textIndex = buttonTexts.indexOf(currentText);
             noButton.textContent = buttonTexts[(textIndex + 1) % buttonTexts.length];
+            
         }
+        function stopImageChange() {
+            clearInterval(imageInterval); // Detiene el cambio de imagen
+            var imgElement = document.getElementById('bearImage');
+            imgElement.src = 'llorando.png'; // Establece la imagen fija
+        }
+
 
     </script>
 </body>
