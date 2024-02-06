@@ -10,28 +10,33 @@
             background-color: #fff;
             text-align: center;
             padding-top: 50px;
+            margin: 0;
         }
         .card {
             margin: auto;
+            max-width: 90%;
             width: 300px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .card img {
-            width: 100px;
+            max-width: 80%;
             height: auto;
         }
         .card button {
             display: block;
+            width: 60%;
             margin: 10px auto;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 1em;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
         .yes-button {
             background-color: #28a745;
@@ -39,11 +44,37 @@
         .no-button {
             background-color: #dc3545;
         }
-        .yes-button:hover {
-            background-color: #218838;
-        }
+        .yes-button:hover,
         .no-button:hover {
-            background-color: #c82333;
+            transform: scale(1.05);
+        }
+
+        /* Responsive styles */
+        @media (min-width: 576px) { /* For tablets */
+            .card {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) { /* For small desktops */
+            .card {
+                width: 40%;
+            }
+            .card button {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 992px) { /* For medium desktops */
+            .card {
+                width: 30%;
+            }
+        }
+
+        @media (min-width: 1200px) { /* For large desktops */
+            .card {
+                width: 20%;
+            }
         }
     </style>
 </head>
