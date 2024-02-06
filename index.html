@@ -50,9 +50,9 @@
 <body>
     <div class="card">
         <img src="san val.png" alt="Valentine Bear" id="bearImage">
-        <h3>Will you be my Valentine?</h3>
+        <h3>Quieres ser mi San Valentin?</h3>
         <button class="yes-button" id="yesBtn">Sip<#</button>
-        <button class="no-button" onclick="growYesButton()">No quiero ser tu San Valentín</button>
+        <button class="no-button" id="noBtn" onclick="changeTextAndGrowYesButton()">No quiero ser tu San Valentín</button>
     </div>
     <script>
         var images = [
@@ -71,15 +71,30 @@
         }
         
         // Cambia la imagen cada 5 segundos
-        setInterval(changeImage, 5000);
+        setInterval(changeImage, 3000);
 
-        function growYesButton() {
+        function changeTextAndGrowYesButton() {
+            // Hace crecer el botón "Sip"
             var yesButton = document.getElementById("yesBtn");
             var currentSize = yesButton.style.fontSize.replace('px', '');
-            currentSize = currentSize ? parseInt(currentSize) : 16; // Default size is 16px if not set
-            yesButton.style.fontSize = (currentSize + 5) + 'px'; // Increment font size
-            yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Adjust padding as well
+            currentSize = currentSize ? parseInt(currentSize) : 16; // El tamaño predeterminado es 16px si no se ha establecido
+            yesButton.style.fontSize = (currentSize + 5) + 'px'; // Incrementa el tamaño de la fuente
+            yesButton.style.padding = (10 + (currentSize - 16) * 0.5) + 'px ' + (20 + (currentSize - 16)) + 'px'; // Ajusta el relleno también
+            
+            // Cambia el texto del botón "No quiero ser tu San Valentín"
+            var noButton = document.getElementById("noBtn");
+            var buttonTexts = [
+                "No quiero ser tu San Valentín",
+                "Voy a llorar",
+                "Andale siiii",
+                "Por favorrrr ardillaaaaa",
+                "Me voy a enojar contigo Valeria Guadalupe"
+            ];
+            var currentText = noButton.textContent || noButton.innerText;
+            var textIndex = buttonTexts.indexOf(currentText);
+            noButton.textContent = buttonTexts[(textIndex + 1) % buttonTexts.length];
         }
+
     </script>
 </body>
 </html>
