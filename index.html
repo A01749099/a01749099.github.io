@@ -116,6 +116,9 @@
 
             noButtonClickCount++;
             // Si el botón "No" se ha presionado 7 veces, cambia la imagen y detén el intervalo
+            if (noButtonClickCount === 6) {
+                stopImageChange_enojo();
+            }
             if (noButtonClickCount === 7) {
                 stopImageChange();
             }
@@ -130,12 +133,18 @@
                 "Te doy muchos besos si pones que si",
                 "Me voy a enojar contigo Valeria Guadalupe",
                 "Ya entendi que no me quieres :(",
+                "Yo ese..."
                 
             ];
             var currentText = noButton.textContent || noButton.innerText;
             var textIndex = buttonTexts.indexOf(currentText);
             noButton.textContent = buttonTexts[(textIndex + 1) % buttonTexts.length];
             
+        }
+        function stopImageChange_enojo() {
+            clearInterval(imageInterval); // Detiene el cambio de imagen
+            var imgElement = document.getElementById('bearImage');
+            imgElement.src = 'llamas.png'; // Establece la imagen fija
         }
         function stopImageChange() {
             clearInterval(imageInterval); // Detiene el cambio de imagen
