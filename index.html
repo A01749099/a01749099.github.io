@@ -83,7 +83,7 @@
     </style>
 </head>
 <body>
-    <div class="card">
+    <div id="card" class="card1">
         <img src="san val.png" alt="Valentine Bear" id="bearImage">
         <h3>Quieres ser mi San Valentin?</h3>
         <button class="yes-button" id="yesBtn" onclick="showNewContent()" >Sip</button>
@@ -167,18 +167,12 @@
             console.log(document.getElementById('card')); // Debería mostrar el elemento en la consola
             console.log(document.getElementById('newContent')); // Debería mostrar el elemento en la consola
 
-            document.addEventListener('DOMContentLoaded', (event) => {
-                console.log(document.getElementById('card'));
-                // El resto de tu código aquí.
-                
-                // Oculta el contenido anterior
-                document.getElementById('card').style.display = 'none';
+            
+        // Oculta el contenido anterior
+            document.getElementById('card').style.display = 'none';
 
-                // Muestra el nuevo contenido
-                document.getElementById('newContent').style.display = 'block';
-            });
-
-        
+        // Muestra el nuevo contenido
+            document.getElementById('newContent').style.display = 'block';
         }
         
 
