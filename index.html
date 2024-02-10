@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day Card</title>
+
     <style>
+        .hidden {
+            display: none;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #fff;
@@ -82,9 +86,17 @@
     <div class="card">
         <img src="san val.png" alt="Valentine Bear" id="bearImage">
         <h3>Quieres ser mi San Valentin?</h3>
-        <button class="yes-button" id="yesBtn">Sip<#</button>
+        <button class="yes-button" id="yesBtn" onclick="showNewContent()" >Sip<#</button>
         <button class="no-button" id="noBtn" onclick="changeTextAndGrowYesButton()">No quiero ser tu San Valentín</button>
     </div>
+
+        <!-- Contenido nuevo a mostrar después de presionar el botón verde -->
+        <div id="newContent" class="hidden">
+        <h2>¡Feliz Día de San Valentín!</h2>
+        <img src="happycat.gif" alt="GIF Animado">
+        <p>Mi amor feliz 14 de febrero, esta vez no te podre dar flores pero quiero que esta pagina siempre se quede para nosotros donde puedas ver cada una de nuestras fotos juntos y que nunca olvidemos cada uno de esos momentos. Te amo con toda mi alma mi ardilla flamita enojona <# </p>
+        </div>
+
     <script>
         var images = [
             'san val.png', // reemplaza con la ruta a tu primera imagen
@@ -151,6 +163,14 @@
             var imgElement = document.getElementById('bearImage');
             imgElement.src = 'llorando.png'; // Establece la imagen fija
         }
+        function showNewContent() {
+        // Oculta el contenido anterior
+            document.getElementById('card').style.display = 'none';
+
+        // Muestra el nuevo contenido
+            document.getElementById('newContent').style.display = 'block';
+        }
+
 
 
     </script>
