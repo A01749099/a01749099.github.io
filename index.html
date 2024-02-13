@@ -61,7 +61,7 @@
 
         .image-container img {
             flex: 1 1 150px; /* Cambiado de 200px a 150px para hacer las imágenes inicialmente más pequeñas */
-            width: 150px; /* Establece un ancho inicial para las imágenes */
+            
             max-width: 100%; /* Asegura que las imágenes no se desborden de su contenedor */
             height: auto; /* Mantiene la proporción de las imágenes */
         }
@@ -91,6 +91,19 @@
         @media (min-width: 1200px) { /* For large desktops */
             .card1 {
                 width: 20%;
+            }
+        }
+        @media (max-width: 768px) { /* Para tablets y móviles */
+            .image-container img {
+                flex: 1 1 120px; /* Hace las imágenes más pequeñas en dispositivos más pequeños */
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Para teléfonos móviles */
+            .image-container img {
+                flex: 1 1 100px; /* Hace las imágenes aún más pequeñas en teléfonos móviles */
+                width: 100px;
             }
         }
     </style>
