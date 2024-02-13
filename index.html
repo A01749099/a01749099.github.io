@@ -52,7 +52,19 @@
         .no-button:hover {
             transform: scale(1.05);
         }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra las imágenes horizontalmente */
+            gap: 10px; /* Espacio entre las imágenes */
+        }
 
+        .image-container img {
+            flex: 1 1 200px; /* Las imágenes intentarán ocupar al menos 200px, pero pueden crecer si hay espacio disponible */
+            max-width: 100%; /* Asegura que las imágenes no se desborden de su contenedor */
+            height: auto; /* Mantiene la proporción de las imágenes */
+        }
+        
         /* Responsive styles */
         @media (min-width: 576px) { /* For tablets */
             .card1 {
@@ -95,7 +107,20 @@
         <h2>¡Feliz Día de San Valentín!</h2>
         <img src="happycat.gif" alt="GIF">
         <p>Mi amor feliz 14 de febrero, esta vez no te podre dar flores pero quiero que esta pagina siempre se quede para nosotros donde puedas ver cada una de nuestras fotos juntos y que nunca olvidemos cada uno de esos momentos. Te amo con toda mi alma mi ardilla flamita enojona <# </p>
+        <!-- Contenedor de imágenes -->
+        <div class="image-container">
+            <img src="val.png" alt="Imagen 1">
+            <img src="val1.png" alt="Imagen 2">
+            <img src="val2.png" alt="Imagen 3">
+            <img src="val3.png" alt="Imagen 4">
+            <img src="dalle.png" alt="Imagen 5">
+            <img src="dalle2.png" alt="Imagen 6">
+            <img src="dalle3.png" alt="Imagen 7">
+            <img src="dalle4.png" alt="Imagen 8">
+            <!-- Agrega más imágenes según necesites -->
+        </div>
     </div>
+
 
     <script>
         var images = [
